@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.tavant.collection.dao.EmployeeDao;
 import com.tavant.collection.dao.EmployeeDaoImpl;
+import com.tavant.collection.exceptions.InvalidNameException;
+import com.tavant.collection.exceptions.InvalidSalaryException;
 import com.tavant.collection.models.Employee;
 
 public class EmployeeServiceImpl implements EmployeeService {
@@ -16,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee updateEmployee(String empId, Employee employee) {
+	public Employee updateEmployee(String empId, Employee employee) throws InvalidNameException,  InvalidSalaryException {
 		return this.employeeDao.updateEmployee(empId, employee);
 	}
 

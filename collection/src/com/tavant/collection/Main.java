@@ -4,6 +4,8 @@ import java.io.Console;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.tavant.collection.exceptions.InvalidNameException;
+import com.tavant.collection.exceptions.InvalidSalaryException;
 import com.tavant.collection.models.Employee;
 import com.tavant.collection.service.EmployeeService;
 import com.tavant.collection.service.EmployeeServiceImpl;
@@ -13,7 +15,7 @@ public class Main {
 	private static Scanner scanner = new Scanner(System.in);
 	private static boolean again = false;
 
-	public static void add() {
+	public static void add() throws InvalidSalaryException , InvalidNameException{
 		Employee employee = new Employee();
 
 		System.out.println("Enter Employee ID");
@@ -65,14 +67,14 @@ public class Main {
 	}
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
-//		customInput();
-		randomInput();
+		customInput();
+//		randomInput();
 
 	}
 
-	private static  void randomInput() {
+	private static  void randomInput() throws Exception {
 		
 		for (int i = 0; i < 10; i++) {
 			employeeService.addEmployee(new Employee(
@@ -91,7 +93,7 @@ public class Main {
 		}
 	}
 
-	public static void customInput() {
+	public static void customInput() throws InvalidSalaryException {
 		System.out.println("Hello ...");
 
 		do {
@@ -100,7 +102,13 @@ public class Main {
 			switch (input) {
 
 			case 1:
-				add();
+				try {
+					add();
+				} catch (InvalidNameException e) {
+					System.err.println(e);
+				}catch (InvalidSalaryException e) {
+					System.err.println(e);
+				}
 				break;
 
 			case 2:

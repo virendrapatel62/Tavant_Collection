@@ -12,6 +12,6 @@ public class InvalidSalaryException extends Exception {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return super.toString() + " " + getMessage();
+		return super.toString() ;
 	}
 }

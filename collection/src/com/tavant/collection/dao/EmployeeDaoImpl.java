@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.tavant.collection.exceptions.InvalidNameException;
+import com.tavant.collection.exceptions.InvalidSalaryException;
 import com.tavant.collection.models.Employee;
 
 public class EmployeeDaoImpl implements EmployeeDao {  
@@ -21,7 +23,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public Employee updateEmployee(String empId, Employee employee) {
+	public Employee updateEmployee(String empId, Employee employee) throws InvalidSalaryException , InvalidNameException{
 		
 		 if(employee == null ) {
 			return employee;
