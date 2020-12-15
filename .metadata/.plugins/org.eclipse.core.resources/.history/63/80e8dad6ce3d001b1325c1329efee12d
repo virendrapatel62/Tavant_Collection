@@ -1,0 +1,77 @@
+package collection;
+
+public class Employee {
+	private String employeeId;
+	private String employeeFirstName;
+	private String employeeLastName;
+	private String employeeMobileNumber;
+	
+	
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public String getEmployeeId() {
+		return employeeId;
+	}
+
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
+	}
+
+
+	public String getEmployeeFirstName() {
+		return employeeFirstName;
+	}
+
+
+	public void setEmployeeFirstName(String employeeFirstName) {
+		this.employeeFirstName = employeeFirstName;
+	}
+
+
+	public String getEmployeeLastName() {
+		return employeeLastName;
+	}
+
+
+	public void setEmployeeLastName(String employeeLastName) {
+		this.employeeLastName = employeeLastName;
+	}
+
+
+	public String getEmployeeMobileNumber() {
+		return employeeMobileNumber;
+	}
+	
+	
+
+
+	public Employee(String employeeId, String employeeFirstName, String employeeLastName, String employeeMobileNumber) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeFirstName = employeeFirstName;
+		this.employeeLastName = employeeLastName;
+		this.employeeMobileNumber = employeeMobileNumber;
+	}
+
+
+	public void setEmployeeMobileNumber(String employeeMobileNumber) {
+		this.employeeMobileNumber = employeeMobileNumber;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeFirstName=" + employeeFirstName + ", employeeLastName="
+				+ employeeLastName + ", employeeMobileNumber=" + employeeMobileNumber + "]";
+	}
+	
+	
+	
+	
+	
+	
+}

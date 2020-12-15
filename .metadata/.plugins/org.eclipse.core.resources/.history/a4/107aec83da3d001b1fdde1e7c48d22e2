@@ -1,0 +1,5 @@
+package com.tavant.collection.dao;
+
+public interface EmployeeDao {
+
+}

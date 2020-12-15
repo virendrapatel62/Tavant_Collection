@@ -1,0 +1,71 @@
+package com.tavant.collection.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.tavant.collection.models.Department;
+import com.tavant.collection.models.Employee;
+
+public class DepartmentDaoImpl implements DepartmentDao {
+	private List<Department> departments = new ArrayList<Department>(20);
+	
+	
+
+	@Override
+	public Employee updateEmployee(String empId, Employee employee) {
+		
+		return null;
+	}
+	
+	@Override
+	public Employee getEmployeeById(String empid) {
+		for (Employee employee : employees) {
+			if(employee.getEmployeeId().equals(empid))
+				return employee;
+		}
+		return null;
+	}
+
+	@Override
+	public List<Employee> getEmployees() {
+		// TODO Auto-generated method stub
+		return this.employees;
+	}
+
+	
+
+	@Override
+	public Boolean isExists(String empId) {
+		return (this.getEmployeeById(empId) != null ) ? true : false ;
+	}
+
+	@Override
+	public Boolean addDepartment(Department department) {
+		return this.departments.add(department);
+	}
+
+	@Override
+	public Department updateDepartment(String departmentId, Department department) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Department> getDepartments() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean deleteDepartment(String departmentId) {
+		Department department = this.getDepartmentById(departmentId);
+		return this.departments.remove(department);
+	}
+
+	@Override
+	public Department getDepartmentById(String departmentId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

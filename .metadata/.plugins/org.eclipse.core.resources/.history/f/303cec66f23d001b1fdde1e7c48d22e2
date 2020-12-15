@@ -1,0 +1,5 @@
+package com.tavant.collection.service;
+
+public interface EmployeeService {
+
+}

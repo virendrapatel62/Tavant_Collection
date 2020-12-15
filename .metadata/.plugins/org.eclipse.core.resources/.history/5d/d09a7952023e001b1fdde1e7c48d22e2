@@ -1,0 +1,24 @@
+package com.tavant.collection;
+
+import com.tavant.collection.models.Employee;
+import com.tavant.collection.service.EmployeeService;
+import com.tavant.collection.service.EmployeeServiceImpl;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		EmployeeService employeeService = new EmployeeServiceImpl();
+		
+		
+		for(int i = 0 ; i < 5 ; i ++) {
+			Employee employee = new Employee();
+			employeeService.addEmployee(employee);
+		}
+		
+		
+		
+		for(Employee q : employeeService.getEmployees()) {
+			System.out.println(q);
+		}
+	}
+}

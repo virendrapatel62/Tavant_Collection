@@ -1,0 +1,12 @@
+package collection;
+
+public class Employee {
+	private String employeeId;
+	private String employeeFirstName;
+	private String employeeLastName;
+	private String employeeMobileNumber;
+	private Float employeeSalary;
+
+	
+
+}

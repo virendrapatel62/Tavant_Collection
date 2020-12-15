@@ -1,0 +1,15 @@
+package com.tavant.collection.dao;
+
+import java.util.List;
+
+import com.sun.jdi.Location;
+import com.tavant.collection.models.Employee;
+
+public interface LocationDao {
+	public Boolean addLocation(Location location);
+	public Location updateEmployee(String empId , Location location);
+	public List<Location> getEmployees();
+	public Location deleteEmploye(String empid);
+	public Location getEmployeeById(String empid);
+	public boolean isExists(String empId);
+}

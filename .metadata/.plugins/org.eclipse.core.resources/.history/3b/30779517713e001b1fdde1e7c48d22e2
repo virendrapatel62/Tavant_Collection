@@ -1,0 +1,15 @@
+package com.tavant.collection.dao;
+
+import java.util.List;
+
+import com.tavant.collection.models.Department;
+import com.tavant.collection.models.Employee;
+
+public interface DepartmentDao {
+	public boolean addDepartment(Department department);
+	public Department updateDepartment(String departmentId , Department department);
+	public List<Employee> getDepartments();
+	public Employee deleteEmploye(String empid);
+	public Employee getEmployeeById(String empid);
+	public boolean isExists(String empId);
+}

@@ -1,0 +1,49 @@
+package com.tavant.collection.service;
+
+import java.util.List;
+
+import com.tavant.collection.dao.*;
+import com.tavant.collection.models.*;
+
+public class LocationServiceImpl implements LocationService{
+		
+	private LocationDao locationDao = new LocationDaoImpl();
+
+	@Override
+	public Boolean addLocation(Location location) {
+		// TODO Auto-generated method stub
+		return this.locationDao.addLocation(location);
+	}
+
+	@Override
+	public Location updateLocation(String locationId, Location location) {
+		// TODO Auto-generated method stub
+		return this.locationDao.updateLocation(locationId, location);
+	}
+
+	@Override
+	public List<Location> getLocations() {
+		// TODO Auto-generated method stub
+		return this.locationDao.getLocations();
+	}
+
+	@Override
+	public Boolean deleteLocation(String empid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Location getLocationById(String empid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Boolean isExists(String empId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}
