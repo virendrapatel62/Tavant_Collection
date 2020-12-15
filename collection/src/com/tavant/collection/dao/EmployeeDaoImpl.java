@@ -1,12 +1,19 @@
 package com.tavant.collection.dao;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.tavant.collection.models.Employee;
 
 public class EmployeeDaoImpl implements EmployeeDao {
-	private List<Employee> employees = new ArrayList<Employee>(20);
+	
+	private Comparator<Employee> employeeComparator = (o1,o2)-> o1.getEmployeeId().compareTo(o2.getEmployeeId());
+	private Set<Employee> employees = new TreeSet<Employee>(employeeComparator);
 	
 	@Override
 	public boolean addEmployee(Employee emp) {
@@ -41,7 +48,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public List<Employee> getEmployees() {
 		// TODO Auto-generated method stub
-		return this.employees;
+		return new ArrayList<Employee>(this.employees);
 	}
 
 	@Override

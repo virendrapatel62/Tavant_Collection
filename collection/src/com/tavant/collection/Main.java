@@ -1,6 +1,7 @@
 package com.tavant.collection;
 
 import java.io.Console;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.tavant.collection.models.Employee;
@@ -8,7 +9,6 @@ import com.tavant.collection.service.EmployeeService;
 import com.tavant.collection.service.EmployeeServiceImpl;
 
 public class Main {
-
 	private static EmployeeService employeeService = new EmployeeServiceImpl();
 	private static Scanner scanner = new Scanner(System.in);
 	private static boolean again = false;
@@ -17,32 +17,26 @@ public class Main {
 		Employee employee = new Employee();
 
 		System.out.println("Enter Employee ID");
-		employee.setEmployeeId(scanner.nextLine());
-		
-		boolean flag = true;
-		while(flag) {
-			
-		}
-		
-		
+		employee.setEmployeeId(scanner.next());
+
 		System.out.println("Enter First Name");
-		employee.setEmployeeFirstName(scanner.nextLine());
+		employee.setEmployeeFirstName(scanner.next());
 
 		System.out.println("Enter Last Name Name");
-		employee.setEmployeeLastName(scanner.nextLine());
+		employee.setEmployeeLastName(scanner.next());
 
 		System.out.println("Enter Mobil Number");
-		employee.setEmployeeMobileNumber(scanner.nextLine());
+		employee.setEmployeeMobileNumber(scanner.next());
 
 		System.out.println("Enter Salary");
-		employee.setEmployeeSalary(Float.valueOf(scanner.nextLine()));
+		employee.setEmployeeSalary(Float.valueOf(scanner.nextFloat()));
 
 		employeeService.addEmployee(employee);
 	}
 
 	public static void delete() {
 		System.out.println("Enter EMployee ID");
-		Employee employee2 = employeeService.deleteEmploye(scanner.nextLine());
+		Employee employee2 = employeeService.deleteEmploye(scanner.next());
 		if (employee2 != null) {
 			System.out.println("EMployee Deleted");
 		} else {
@@ -59,30 +53,45 @@ public class Main {
 		}
 
 	}
-	
+
 	private static void checkIsExists() {
 		System.out.println("Enter EMployee ID");
-		boolean isexists = employeeService.isExists(scanner.nextLine());
+		boolean isexists = employeeService.isExists(scanner.next());
 		if (isexists) {
 			System.out.println("Yes ");
 		} else {
 			System.out.println("No");
 		}
 	}
-	
+
+
 	public static void main(String[] args) {
-		String a = "Virendra";
-		String b = "aVirendr";
-		
-		System.out.println(a.hashCode());
-		System.out.println(a.hashCode());
+
+//		customInput();
+		randomInput();
+
 	}
 
-	public static void main(String args) {
+	private static  void randomInput() {
 		
+		for (int i = 0; i < 10; i++) {
+			employeeService.addEmployee(new Employee(
+						"AB"+new Random().nextInt(20)+"", 
+						"Name" + i ,
+						"lastname" + i ,
+						"mobile" + i ,
+						new Random().nextFloat()
+						)
+					);
+					
+		}
 		
-		 
+		for (Employee iterable: employeeService.getEmployees()) {
+			System.out.println(iterable);
+		}
+	}
 
+	public static void customInput() {
 		System.out.println("Hello ...");
 
 		do {
@@ -113,7 +122,7 @@ public class Main {
 			}
 
 			System.out.println("Wanna Cont.. press 1 for yes or any key ");
-			String key = scanner.nextLine();
+			String key = scanner.next();
 
 			if (key.equals("1")) {
 				again = true;
@@ -122,10 +131,8 @@ public class Main {
 		} while (again);
 
 		System.out.println("Bye Bye...");
-
 	}
 
-	
 	public static void showOptions() {
 		System.out.println("---------------");
 		System.out.println("Choose Option :");

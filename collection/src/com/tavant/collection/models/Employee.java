@@ -10,10 +10,16 @@ import lombok.Setter;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee {
+public class Employee implements Comparable<Employee>{
 	private String employeeId;
 	private String employeeFirstName;
 	private String employeeLastName;
 	private String employeeMobileNumber;
 	private Float employeeSalary;
+	
+	
+	@Override
+	public int compareTo(Employee o) {
+		return this.employeeId.compareTo(o.employeeId);
+	}
 }
