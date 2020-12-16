@@ -1,6 +1,7 @@
 package com.tavant.collection.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.tavant.collection.exceptions.InvalidNameException;
 import com.tavant.collection.exceptions.InvalidSalaryException;
@@ -8,10 +9,10 @@ import com.tavant.collection.models.Employee;
 
 public interface EmployeeService {
 	public boolean addEmployee(Employee emp);
-	public Employee updateEmployee(String empId , Employee employee) 
+	public Optional<Employee> updateEmployee(String empId , Employee employee) 
 			throws InvalidSalaryException , InvalidNameException;
-	public List<Employee> getEmployees();
-	public Employee deleteEmploye(String empid);
-	public Employee getEmployeeById(String empid);
+	public Optional<List<Employee>> getEmployees();
+	public Optional<Employee> deleteEmploye(String empid);
+	public Optional<Employee> getEmployeeById(String empid);
 	public boolean isExists(String empId);
 }

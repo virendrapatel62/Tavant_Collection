@@ -1,6 +1,7 @@
 package com.tavant.collection.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.tavant.collection.dao.EmployeeDao;
 import com.tavant.collection.dao.EmployeeDaoImpl;
@@ -18,23 +19,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee updateEmployee(String empId, Employee employee) throws InvalidNameException,  InvalidSalaryException {
+	public Optional<Employee> updateEmployee(String empId, Employee employee) throws InvalidNameException,  InvalidSalaryException {
 		return this.employeeDao.updateEmployee(empId, employee);
 	}
 
 	@Override
-	public List<Employee> getEmployees() {
+	public Optional<List<Employee>> getEmployees() {
 		
 		return this.employeeDao.getEmployees();
 	}
 
 	@Override
-	public Employee deleteEmploye(String empid) {
+	public Optional<Employee> deleteEmploye(String empid) {
 		return this.employeeDao.deleteEmploye(empid);
 	}
 
 	@Override
-	public Employee getEmployeeById(String empid) {
+	public Optional<Employee> getEmployeeById(String empid) {
 		return this.employeeDao.getEmployeeById(empid);
 	}
 

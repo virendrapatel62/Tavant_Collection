@@ -12,9 +12,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @EqualsAndHashCode
 @NoArgsConstructor
+@ToString
 public class Employee implements Comparable<Employee> {
 
 	@Setter

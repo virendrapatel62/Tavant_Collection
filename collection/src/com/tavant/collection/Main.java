@@ -40,7 +40,7 @@ public class Main {
 
 	public static void delete() {
 		System.out.println("Enter EMployee ID");
-		Employee employee2 = employeeService.deleteEmploye(scanner.next());
+		Employee employee2 = employeeService.deleteEmploye(scanner.next()).get();
 		if (employee2 != null) {
 			System.out.println("EMployee Deleted");
 		} else {
@@ -52,7 +52,7 @@ public class Main {
 	private static void printall() {
 
 		System.out.println("All Employees");
-		for (Employee employee3 : employeeService.getEmployees()) {
+		for (Employee employee3 : employeeService.getEmployees().get()) {
 			System.out.println(employee3);
 		}
 
@@ -94,7 +94,7 @@ public class Main {
 					
 		}
 		
-		for (Employee iterable: employeeService.getEmployees()) {
+		for (Employee iterable: employeeService.getEmployees().get()) {
 			System.out.println(iterable);
 		}
 	}
