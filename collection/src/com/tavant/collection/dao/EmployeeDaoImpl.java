@@ -2,15 +2,11 @@ package com.tavant.collection.dao;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.tavant.collection.exceptions.InvalidNameException;
 import com.tavant.collection.exceptions.InvalidSalaryException;

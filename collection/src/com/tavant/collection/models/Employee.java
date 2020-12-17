@@ -6,8 +6,6 @@ import java.util.regex.Pattern;
 import com.tavant.collection.exceptions.InvalidNameException;
 import com.tavant.collection.exceptions.InvalidSalaryException;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

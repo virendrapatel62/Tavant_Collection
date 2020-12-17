@@ -1,10 +1,7 @@
 package com.tavant.collection;
 
-import java.io.Console;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.tavant.collection.exceptions.InvalidNameException;
 import com.tavant.collection.exceptions.InvalidSalaryException;

@@ -1,6 +1,7 @@
 package com.tavant.collection.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.tavant.collection.dao.*;
 import com.tavant.collection.models.*;
@@ -15,12 +16,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public Department updateDepartment(String departmentId, Department department) {
+	public Optional<Department> updateDepartment(String departmentId, Department department) {
 		return departmentDao.updateDepartment(departmentId, department);
 	}
 
 	@Override
-	public List<Department> getDepartments() {
+	public Optional<List<Department>> getDepartments() {
 		return this.departmentDao.getDepartments();
 	}
 
@@ -31,7 +32,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	public Department getDepartmentById(String departmentId) {
+	public Optional<Department> getDepartmentById(String departmentId) {
 		return this.departmentDao.getDepartmentById(departmentId);
 	}
 

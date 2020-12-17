@@ -2,28 +2,25 @@ package com.tavant.collection.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import com.tavant.collection.models.Department;
-import com.tavant.collection.models.Employee;
 import com.tavant.collection.models.Location;
 
 public class LocationDaoImpl implements LocationDao {
 	private List<Location> locations = new ArrayList<Location>(20);
 
 	@Override
-	public Location getLocationById(String locationId) {
+	public Optional<Location> getLocationById(String locationId) {
 		for (Location location : locations) {
 			if (location.getLocationId().equals(locationId))
-				return location;
+				return Optional.of(location);
 		}
-		return null;
+		return Optional.empty();
 	}
-
-	
 
 	@Override
 	public Boolean isExists(String locationId) {
-		return (this.getLocationById(locationId)!= null) ? true : false;
+		return (this.getLocationById(locationId) != null) ? true : false;
 	}
 
 	@Override
@@ -32,23 +29,23 @@ public class LocationDaoImpl implements LocationDao {
 	}
 
 	@Override
-	public Location updateLocation(String locationId, Location location) {
-		Location tempLocation = this.getLocationById(locationId);
+	public Optional<Location> updateLocation(String locationId, Location location) {
+		Location tempLocation = this.getLocationById(locationId).get();
 		tempLocation.setLatitude(location.getLatitude());
 		tempLocation.setLongitude(location.getLongitude());
 		tempLocation.setName(location.getName());
-		return tempLocation;
+		return Optional.of(tempLocation);
 	}
 
 	@Override
-	public List<Location> getLocations() {
-		return this.locations;
+	public Optional<List<Location>> getLocations() {
+
+		return this.locations.isEmpty() ? Optional.empty() : Optional.of(this.locations);
 	}
 
 	@Override
 	public Boolean deleteLocation(String locationId) {
-
-		return this.locations.remove(this.getLocationById(locationId));
+		return this.locations.remove(this.getLocationById(locationId).get());
 	}
 
 }

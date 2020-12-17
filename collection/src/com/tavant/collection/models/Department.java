@@ -3,7 +3,6 @@ package com.tavant.collection.models;
 import com.tavant.collection.exceptions.InvalidDepartmentIdException;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

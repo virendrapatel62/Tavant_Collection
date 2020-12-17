@@ -2,20 +2,20 @@ package com.tavant.collection.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.tavant.collection.models.Department;
-import com.tavant.collection.models.Employee;
 
 public class DepartmentDaoImpl implements DepartmentDao {
 	private List<Department> departments = new ArrayList<Department>(20);
 
 	@Override
-	public Department getDepartmentById(String departmentId) {
+	public Optional<Department> getDepartmentById(String departmentId) {
 		for (Department department : departments) {
 			if (department.getDepartmentId().equals(departmentId))
-				return department;
+				return Optional.of(department);
 		}
-		return null;
+		return Optional.empty();
 	}
 
 	
@@ -31,21 +31,21 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	}
 
 	@Override
-	public Department updateDepartment(String departmentId, Department department) {
-		Department tempdDepartment = this.getDepartmentById(departmentId);
+	public Optional<Department> updateDepartment(String departmentId, Department department) {
+		Department tempdDepartment = this.getDepartmentById(departmentId).get();
 		tempdDepartment.setDepartmentName(department.getDepartmentName());
-		return tempdDepartment;
+		return Optional.of(tempdDepartment);
 	}
 
 	@Override
-	public List<Department> getDepartments() {
-		return this.departments;
+	public Optional<List<Department>> getDepartments() {
+		return (this.departments.isEmpty()) ? Optional.empty() : Optional.of(this.departments);
 	}
 
 	@Override
 	public Boolean deleteDepartment(String departmentId) {
 
-		return this.departments.remove(this.getDepartmentById(departmentId));
+		return this.departments.remove(this.getDepartmentById(departmentId).get());
 	}
 
 
