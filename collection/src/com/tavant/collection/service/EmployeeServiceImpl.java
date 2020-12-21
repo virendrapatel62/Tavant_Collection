@@ -11,7 +11,20 @@ import com.tavant.collection.models.Employee;
 
 public class EmployeeServiceImpl implements EmployeeService {
 		
-	private EmployeeDao employeeDao = new EmployeeDaoImpl();
+	private EmployeeDao employeeDao = EmployeeDaoImpl.getInstance();
+	private static final EmployeeService EMPLOYEE_SERVICE;
+	
+	static {
+		EMPLOYEE_SERVICE = new EmployeeServiceImpl();
+	}
+	
+	public static EmployeeService getInstance() {
+		return EMPLOYEE_SERVICE;
+	}
+	
+	private EmployeeServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	@Override
 	public boolean addEmployee(Employee emp) {

@@ -12,7 +12,7 @@ import com.tavant.collection.service.EmployeeServiceImpl;
 public class MainOptional {
 
 	public static void main(String[] args) {
-		EmployeeService employeeService = new EmployeeServiceImpl();
+		EmployeeService employeeService = EmployeeServiceImpl.getInstance();
 
 		try {
 			Employee employee = new Employee("ABC1", "Virendra", "Patel", "9155546734", 1200f);

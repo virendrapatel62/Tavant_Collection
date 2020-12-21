@@ -14,9 +14,30 @@ import com.tavant.collection.models.Employee;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
+
 	private Comparator<Employee> employeeComparator = (o1, o2) -> o1.getEmployeeId().compareTo(o2.getEmployeeId());
 	private Set<Employee> employees = new TreeSet<Employee>(employeeComparator);
-
+	
+	private static EmployeeDao EMPLOYEE_DAO ;
+	
+	
+	
+	private EmployeeDaoImpl() {
+	}
+	
+	public static EmployeeDao getInstance() {
+		if(EMPLOYEE_DAO == null ) {
+			synchronized (EmployeeDaoImpl.class) {
+				if(EMPLOYEE_DAO == null) {
+					EMPLOYEE_DAO = new EmployeeDaoImpl();
+				}
+			}
+		}
+		
+		return EMPLOYEE_DAO;
+	}
+	
+	
 	@Override
 	public boolean addEmployee(Employee emp) {
 		return this.employees.add(emp);

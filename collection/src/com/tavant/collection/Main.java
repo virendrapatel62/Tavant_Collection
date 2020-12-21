@@ -24,7 +24,7 @@ import com.tavant.collection.service.EmployeeServiceImpl;
 
 
 public class Main {
-	private static EmployeeService employeeService = new EmployeeServiceImpl();
+	private static EmployeeService employeeService = EmployeeServiceImpl.getInstance();
 	private static Scanner scanner = new Scanner(System.in);
 	private static boolean again = false;
 
