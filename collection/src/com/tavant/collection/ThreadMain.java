@@ -1,12 +1,12 @@
 package com.tavant.collection;
 
-import com.tavant.collection.dao.EmployeeDaoImpl;
+import com.tavant.collection.service.EmployeeServiceImpl;
 
 public class ThreadMain{
 
 	public static void main(String[] args) {
 		Runnable runnable = ()->{
-			System.out.println(EmployeeDaoImpl.getInstance().hashCode());
+			System.out.println(EmployeeServiceImpl.getInstance().hashCode());
 		};
 		
 		Thread thread = new Thread(runnable);

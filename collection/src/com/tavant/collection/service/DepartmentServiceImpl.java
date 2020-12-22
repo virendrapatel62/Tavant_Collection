@@ -8,7 +8,21 @@ import com.tavant.collection.models.*;
 
 public class DepartmentServiceImpl implements DepartmentService {
 		
-	private DepartmentDao departmentDao = new DepartmentDaoImpl();
+	private DepartmentDao departmentDao = DepartmentDaoImpl.getInstance();
+	private static DepartmentService departmentServiceImpl;
+	
+	public static DepartmentService getInstance() {
+		if(departmentServiceImpl==null)
+			synchronized (DepartmentServiceImpl.class) {
+				if(departmentServiceImpl==null) {
+					departmentServiceImpl = new DepartmentServiceImpl();
+				}
+			}
+		return departmentServiceImpl;
+	}
+	private DepartmentServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public Boolean addDepartment(Department department) {

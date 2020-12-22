@@ -14,7 +14,7 @@ import lombok.ToString;
 
 @EqualsAndHashCode
 @NoArgsConstructor
-@ToString
+
 public class Employee implements Comparable<Employee> {
 
 	@Setter
@@ -38,7 +38,9 @@ public class Employee implements Comparable<Employee> {
 	public int compareTo(Employee o) {
 		return this.employeeId.compareTo(o.employeeId);
 	}
-
+	
+	
+	
 	public void setEmployeeSalary(Float employeeSalary) throws InvalidSalaryException {
 		if (employeeSalary < 0 || employeeSalary == null)
 			throw new InvalidSalaryException("Salary cant be Nagative Value");
@@ -91,4 +93,15 @@ public class Employee implements Comparable<Employee> {
 
 		this.employeeLastName = employeeLastName;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeFirstName=" + employeeFirstName + ", employeeLastName="
+				+ employeeLastName + ", employeeMobileNumber=" + employeeMobileNumber + ", employeeSalary="
+				+ employeeSalary + "]";
+	}
+	
+	
 }

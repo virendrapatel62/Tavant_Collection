@@ -8,6 +8,20 @@ import com.tavant.collection.models.Department;
 
 public class DepartmentDaoImpl implements DepartmentDao {
 	private List<Department> departments = new ArrayList<Department>(20);
+	private static DepartmentDao departmentDao ;
+	private DepartmentDaoImpl() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static DepartmentDao getInstance() {
+		if(departmentDao == null) {
+			synchronized (DepartmentDaoImpl.class) {
+				if(departmentDao == null)
+					departmentDao = new DepartmentDaoImpl();
+			}
+		}
+		return departmentDao;
+	}
 
 	@Override
 	public Optional<Department> getDepartmentById(String departmentId) {

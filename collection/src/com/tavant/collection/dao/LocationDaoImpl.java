@@ -8,7 +8,21 @@ import com.tavant.collection.models.Location;
 
 public class LocationDaoImpl implements LocationDao {
 	private List<Location> locations = new ArrayList<Location>(20);
-
+	private static LocationDao locationDaoImpl;
+	
+	public static LocationDao getInstance() {
+		if(locationDaoImpl==null) {
+			synchronized (LocationDaoImpl.class) {
+				if(locationDaoImpl == null) {
+					locationDaoImpl = new LocationDaoImpl();
+				}
+			}
+		}
+		return locationDaoImpl;
+	}
+	private LocationDaoImpl() {
+		
+	}
 	@Override
 	public Optional<Location> getLocationById(String locationId) {
 		for (Location location : locations) {
