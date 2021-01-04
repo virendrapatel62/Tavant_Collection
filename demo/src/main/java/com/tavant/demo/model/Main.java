@@ -1,5 +1,5 @@
 package com.tavant.demo.model;
-
+  
 import java.util.Arrays;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -20,6 +20,7 @@ public class Main {
 //		System.out.println(context.getBean(Employee.class));
 //		System.out.println(context.getBean(Employee.class));
 //		System.out.println(context.getBean(Employee.class));
+		context.close();
 	}
 
 }
