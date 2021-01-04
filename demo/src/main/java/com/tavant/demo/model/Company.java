@@ -1,5 +1,8 @@
 package com.tavant.demo.model;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
@@ -18,15 +21,18 @@ public class Company {
 //	}
 
 	public Company() {
-		System.out.println("Company.Company()");
+		System.out.println("---Company.Company()----");
 	}
 
+	
+	@PostConstruct
 	public void init() {
-		System.out.println("Company.init()");
+		System.out.println("---Company.init()----");
 	}
 
+	@PreDestroy
 	public void destroy() {
-		System.out.println("Company.destroy()");
+		System.out.println("---Company.destroy()-----");
 	}
 
 	@Override

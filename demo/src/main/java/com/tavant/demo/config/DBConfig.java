@@ -13,6 +13,7 @@ public class DBConfig {
 	
 	@Bean("employee2")
 	public Employee getEmployeeObject() {
+		System.out.println("DBConfig.getEmployeeObject()-------");
 		return new Employee();
 	}
 }

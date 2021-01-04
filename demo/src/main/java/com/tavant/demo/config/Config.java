@@ -15,16 +15,17 @@ import com.tavant.demo.model.Employee;
 public class Config {
 
 	
-	@Lazy
+	@Lazy(true)
 	@Bean("employee1")
 	public Employee getEmployeeObject() {
-		System.out.println("Config.getEmployeeObject()");
+		System.out.println("----Config.getEmployeeObject()----");
 		return new Employee();
 	}
 	
 	@Lazy(false)
-	@Bean(name = "company" , initMethod = "init" , destroyMethod = "destroy")
+	@Bean(name = "company")
 	public Company getCompanyObject() {
+		System.out.println("---Config.getCompanyObject()----");
 		return new Company();
 	}
 
