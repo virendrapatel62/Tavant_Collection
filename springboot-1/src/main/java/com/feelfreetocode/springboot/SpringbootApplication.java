@@ -21,7 +21,7 @@ public class SpringbootApplication {
 		ApplicationContext context = SpringApplication.run(SpringbootApplication.class, args);
 		System.out.println(context.getBean(DBUtils.class).getConnection());
 
-//		context.getBean(EmployeeDaoImpl.class).getEmployees().get().forEach(System.out::println);
+		context.getBean(EmployeeDaoImpl.class).getEmployees().get().forEach(System.out::println);
 		// @formatter:on
 
 	}

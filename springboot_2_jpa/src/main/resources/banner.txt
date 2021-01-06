@@ -1,0 +1,9 @@
+
+**********************************
+*
+* THIS IS BANNER DESIGN>>>>
+*
+* APP NAME = ${application.title}
+* AUTHER = ${application.author}
+*
+**********************************

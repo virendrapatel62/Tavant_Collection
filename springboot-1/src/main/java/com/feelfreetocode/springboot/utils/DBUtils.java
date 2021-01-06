@@ -14,8 +14,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import com.zaxxer.hikari.HikariDataSource;
-
 @Component
 @PropertySource("classpath:application.properties")
 @Configuration
@@ -27,7 +25,7 @@ public class DBUtils {
 	@Bean 
 	@ConfigurationProperties("spring.datasource") 
 	public DataSource getDataSource() {
-		return DataSourceBuilder.create().type(HikariDataSource.class).build();
+		return DataSourceBuilder.create().build();
 	}
 
 	public void closeConnection(Connection connection) {
