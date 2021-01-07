@@ -13,7 +13,7 @@ import com.feelfreetocode.springboot.models.Employee;
 
 @Service("EmployeeServiceImpl")
 public class EmployeeServiceImpl implements EmployeeService {
-	
+
 	@Autowired
 	private EmployeeDao employeeDaoImpl;
 
@@ -26,13 +26,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Optional<Employee> updateEmployee(Integer empId, Employee employee)
 			throws InvalidSalaryException, InvalidNameException {
 		// TODO Auto-generated method stub
-		return null;
+		employee.setEmployeeId(empId);
+		return Optional.of(this.employeeDaoImpl.save(employee));
+		
 	}
 
 	@Override
 	public Optional<List<Employee>> getEmployees() {
-		// TODO Auto-generated method stub
-		return null;
+		return Optional.of(this.employeeDaoImpl.findAll());
 	}
 
 	@Override
@@ -44,14 +45,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Optional<Employee> getEmployeeById(Integer empid) {
 		// TODO Auto-generated method stub
-		return null;
+		Employee employee = this.employeeDaoImpl.getOne(empid);
+		if(employee!=null)
+			this.employeeDaoImpl.deleteById(empid);
+		return Optional.ofNullable(employee);
 	}
 
 	@Override
 	public boolean isExists(Integer empId) {
 		// TODO Auto-generated method stub
-		return false;
+		return this.employeeDaoImpl.existsById(empId);
 	}
-	
-	
+
 }

@@ -1,5 +1,6 @@
 package com.feelfreetocode.springboot.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -22,9 +23,11 @@ public class Employee implements Comparable<Employee> {
 	private String firstName;
 	private String lastName;
 	private String extention;
+	
+	@Column(length = 40)
 	private String email;
 	private String officeCode;
-	private Integer reportsTo;
+//	private Integer reportsTo;
 	private String jobTitle;
 	
 	@Override
