@@ -23,59 +23,13 @@ public class SpringbootApplication {
 	public static void main(String[] args) throws BeansException, SQLException {
 
 		context = SpringApplication.run(SpringbootApplication.class, args);
-//		System.out.println(context.getBean(DBUtils.class).getConnection());
-		System.out.println("SpringbootApplication.main()-- JPA");
-		
-//		insertRandomData(5);
-//		getAll();
-		
-		 EmployeeServiceImpl employeeService = context.getBean(EmployeeServiceImpl.class);
+		EmployeeServiceImpl employeeService = context.getBean(EmployeeServiceImpl.class);
 		 EmployeeDao dao = context.getBean(EmployeeDao.class);
-//		System.out.println(employeeService.getTopEmployeeOrderByJobTitleAsc());
-//		 System.out.println(employeeService.getTopEmployeeOrderByJobTitleDesc());
-		 
-//		 employeeService.getEmployeesByOfficeCode("1")
-//		 .get().forEach(System.out::println);
-		 
-//		 employeeService.getTop3EmployeeOrderByJobTitleAsc().get().forEach(System.out::println);
-//		 System.out.println("-----");
-//		 employeeService.getTop3EmployeeOrderByJobTitleDesc().get().forEach(System.out::println);
-		 
-//		 dao.findByOfficeCode("1").get().forEach(System.out::println);
-		 System.out.println("---");
-//		 dao.findFirst2ByOfficeCode("1").get().forEach(System.out::println);
-		 System.out.println("---");
-//		 dao.findTop2ByOfficeCode("1").get().forEach(System.out::println);
-		 System.out.println("---");
-		 
-//		 dao.findByFirstNameLike("Diane").get().forEach(System.out::println);
-		 System.out.println("---"); 
-//		 dao.findByOfficeCodeGreaterThanEqual("5").get().forEach(e->System.out.println(e.getOfficeCode()));
-		 System.out.println("---"); 
-		 
-//		 System.out.println(dao.countByOfficeCode("7"));
-//		 System.out.println(dao.countByOfficeCode());
-	
-//		 	dao.getEmployees()
-//		 	.forEach(e->{
-//		 		e.getMap().forEach((k , v)->{
-////		 			System.out.println(v instanceof Long);
-//		 			System.out.println(k + "--" + v);
-//		 		});
-//		 	});
-		 
-//		 	dao.getOfficeCodeWithCount()
-//		 	.forEach(e->{
-//		 		System.out.println(e.getCode() + "--> " + e.getCount());
-//		 	});
 		 	
 		 	OfficeDao dao2 = context.getBean(OfficeDao.class);
 		 	Office office = new Office("of1" , "Jabalpur" , "123456789" , "AVC" ,
 		 			"A" ,  "B" , "C" , "D" , "E" , null );
 //		 	dao2.save(of);
-//		 	
-//		 	
-//		 	
 		 	
 		 	Employee employee = new Employee();
 			employee.setEmail("Virendra@gmail.com");

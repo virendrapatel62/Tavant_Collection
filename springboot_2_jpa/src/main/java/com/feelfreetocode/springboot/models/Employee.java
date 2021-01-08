@@ -18,7 +18,9 @@ import com.fasterxml.jackson.core.sym.Name;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -47,6 +49,7 @@ public class Employee implements Comparable<Employee> {
 	
 	
 	@ManyToOne
+	
 	@JoinColumn(name = "officeCode")
 	private Office officeCode;
 	
@@ -60,5 +63,7 @@ public class Employee implements Comparable<Employee> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
 	
 }
