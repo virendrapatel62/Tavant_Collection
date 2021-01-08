@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.feelfreetocode.springboot.models.Location;
 
-@Repository
-public interface LocationDao extends JpaRepository<Location, String> {
+public interface LocationDao  {
 	
 }

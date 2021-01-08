@@ -14,7 +14,7 @@ import lombok.Setter;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+//@Entity
 public class Location {
 	@Getter @Id
 	private String locationId;

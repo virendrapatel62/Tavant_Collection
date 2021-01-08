@@ -12,7 +12,7 @@ import com.feelfreetocode.springboot.models.Location;
 @Service
 public class LocationServiceImpl implements LocationService {
 
-	@Autowired
+//	@Autowired
 	private LocationDao locationDao ;
 
 	@Override

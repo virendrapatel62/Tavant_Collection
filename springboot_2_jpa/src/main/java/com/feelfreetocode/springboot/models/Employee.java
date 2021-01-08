@@ -3,8 +3,15 @@ package com.feelfreetocode.springboot.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.transaction.TransactionScoped;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.core.sym.Name;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,20 +21,33 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Component
-@Entity
+@Entity(name =  "employees")
+@Table(name = "employees")
 public class Employee implements Comparable<Employee> {
 	
 	
-	@Id
+	@Id @Column(name = "employeeNumber")
 	private Integer employeeId;
-	private String firstName;
-	private String lastName;
-	private String extention;
 	
-	@Column(length = 40)
+	@Column(length = 20 , name = "firstName") @Size(max = 20)
+	private String firstName;
+	
+	@Column(length = 20) @Size(max = 20)
+	private String lastName;
+	
+//	@Column(length = 10) @Size(max = 10)
+//	@Transient
+	private String extension;
+	
+	@Column(length = 40 , nullable = false) @Size(max = 40)
 	private String email;
+	
+	@Column(length = 10) @Size(max = 10)
 	private String officeCode;
-//	private Integer reportsTo;
+	
+	private Integer reportsTo;
+	
+	@Column(length = 20) @Size(max = 25)
 	private String jobTitle;
 	
 	@Override

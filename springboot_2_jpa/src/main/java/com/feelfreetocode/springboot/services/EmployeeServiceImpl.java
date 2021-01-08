@@ -16,6 +16,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
 	private EmployeeDao employeeDaoImpl;
+	
+	public EmployeeDao getEmployeeDaoImpl() {
+		return employeeDaoImpl;
+	}
 
 	@Override
 	public Employee addEmployee(Employee emp) {
@@ -57,4 +61,33 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return this.employeeDaoImpl.existsById(empId);
 	}
 
+	@Override
+	public Employee getTopEmployeeOrderByJobTitleDesc() {
+		// TODO Auto-generated method stub
+		return this.employeeDaoImpl.findTopByOrderByJobTitleDesc();
+	}
+	@Override
+	public Employee getTopEmployeeOrderByJobTitleAsc() {
+		// TODO Auto-generated method stub
+		return this.employeeDaoImpl.findTopByOrderByJobTitleAsc();
+	}
+
+	@Override
+	public Optional<List<Employee>> getEmployeesByOfficeCode(String officeCode) {
+		// TODO Auto-generated method stub
+		return this.employeeDaoImpl.findByOfficeCode(officeCode);
+	}
+
+	@Override
+	public Optional<List<Employee>> getTop3EmployeeOrderByJobTitleAsc() {
+		return this.employeeDaoImpl.findTop3ByOrderByJobTitleAsc();
+	}
+
+	@Override
+	public Optional<List<Employee>> getTop3EmployeeOrderByJobTitleDesc() {
+		// TODO Auto-generated method stub
+		return this.employeeDaoImpl.findTop3ByOrderByJobTitleDesc();
+	}
+	
+	
 }
