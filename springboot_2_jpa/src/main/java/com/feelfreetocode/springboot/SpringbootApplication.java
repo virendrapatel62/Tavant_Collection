@@ -12,7 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.feelfreetocode.springboot.dao.EmployeeDao;
+import com.feelfreetocode.springboot.dao.OfficeDao;
 import com.feelfreetocode.springboot.models.Employee;
+import com.feelfreetocode.springboot.models.Office;
 import com.feelfreetocode.springboot.services.EmployeeServiceImpl;
 
 @SpringBootApplication
@@ -51,14 +53,47 @@ public class SpringbootApplication {
 //		 dao.findByOfficeCodeGreaterThanEqual("5").get().forEach(e->System.out.println(e.getOfficeCode()));
 		 System.out.println("---"); 
 		 
-		 System.out.println(dao.countByOfficeCode("7"));
-		 System.out.println(dao.countByOfficeCode());
+//		 System.out.println(dao.countByOfficeCode("7"));
+//		 System.out.println(dao.countByOfficeCode());
 	
-		 	dao.getOfficeCodeWithCount()
-		 	.forEach(e->{
-		 		System.out.println(e.getCode() + "--> " + e.getCount());
-		 	});
+//		 	dao.getEmployees()
+//		 	.forEach(e->{
+//		 		e.getMap().forEach((k , v)->{
+////		 			System.out.println(v instanceof Long);
+//		 			System.out.println(k + "--" + v);
+//		 		});
+//		 	});
 		 
+//		 	dao.getOfficeCodeWithCount()
+//		 	.forEach(e->{
+//		 		System.out.println(e.getCode() + "--> " + e.getCount());
+//		 	});
+		 	
+		 	OfficeDao dao2 = context.getBean(OfficeDao.class);
+		 	Office office = new Office("of1" , "Jabalpur" , "123456789" , "AVC" ,
+		 			"A" ,  "B" , "C" , "D" , "E" , null );
+//		 	dao2.save(of);
+//		 	
+//		 	
+//		 	
+		 	
+		 	Employee employee = new Employee();
+			employee.setEmail("Virendra@gmail.com");
+			employee.setFirstName("Name ");
+			employee.setLastName("ln");
+			employee.setJobTitle("Software Eng.. traineee") ;
+			employee.setExtension("A"); 
+			employee.setOfficeCode(office);
+//			employee.setReportsTo(); 
+			employee.setEmployeeId(Math.abs((int)new Date().getTime()));
+			try {
+				employee = context.getBean(EmployeeServiceImpl.class).addEmployee(employee);
+				System.out.println(employee);
+			}catch (Exception ee) {
+				// TODO: handle exception
+				ee.printStackTrace();
+			}
+//		 	
 		 	
 		 	
 		 
@@ -72,7 +107,7 @@ public class SpringbootApplication {
 			employee.setLastName("ln" + e);
 			employee.setJobTitle("Software Eng.. traineee") ;
 			employee.setExtension("A"+e); 
-			employee.setOfficeCode(""+e);
+//			employee.setOfficeCode(""+e);
 //			employee.setReportsTo(e); 
 			employee.setEmployeeId(Math.abs((int)new Date().getTime()));
 			try {
