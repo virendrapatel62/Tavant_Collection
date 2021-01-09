@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.feelfreetocode.springboot.exceptions.InvalidNameException;
 import com.feelfreetocode.springboot.exceptions.InvalidSalaryException;
 import com.feelfreetocode.springboot.models.Employee;
+import com.feelfreetocode.springboot.models.Office;
 
 public interface EmployeeService {
 	public Employee addEmployee(Employee emp);
@@ -29,5 +30,5 @@ public interface EmployeeService {
 
 	public Optional<List<Employee>> getTop3EmployeeOrderByJobTitleDesc();
 
-	public Optional<List<Employee>> getEmployeesByOfficeCode(String officeCode);
+	public Optional<List<Employee>> getEmployeesByOfficeCode(Office Office);
 }

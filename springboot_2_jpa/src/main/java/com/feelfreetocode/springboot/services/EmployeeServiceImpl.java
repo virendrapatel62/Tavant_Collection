@@ -10,6 +10,7 @@ import com.feelfreetocode.springboot.dao.EmployeeDao;
 import com.feelfreetocode.springboot.exceptions.InvalidNameException;
 import com.feelfreetocode.springboot.exceptions.InvalidSalaryException;
 import com.feelfreetocode.springboot.models.Employee;
+import com.feelfreetocode.springboot.models.Office;
 
 @Service("EmployeeServiceImpl")
 public class EmployeeServiceImpl implements EmployeeService {
@@ -86,38 +87,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Optional<List<Employee>> getEmployeesByOfficeCode(String officeCode) {
+	public Optional<List<Employee>> getEmployeesByOfficeCode(Office officeCode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-//	@Override
-//	public Employee getTopEmployeeOrderByJobTitleDesc() {
-//		// TODO Auto-generated method stub
-//		return this.employeeDaoImpl.findTopByOrderByJobTitleDesc();
-//	}
-//	@Override
-//	public Employee getTopEmployeeOrderByJobTitleAsc() {
-//		// TODO Auto-generated method stub
-//		return this.employeeDaoImpl.findTopByOrderByJobTitleAsc();
-//	}
-//
-//	@Override
-//	public Optional<List<Employee>> getEmployeesByOfficeCode(String officeCode) {
-//		// TODO Auto-generated method stub
-//		return this.employeeDaoImpl.findByOfficeCode(officeCode);
-//	}
-//
-//	@Override
-//	public Optional<List<Employee>> getTop3EmployeeOrderByJobTitleAsc() {
-//		return this.employeeDaoImpl.findTop3ByOrderByJobTitleAsc();
-//	}
-//
-//	@Override
-//	public Optional<List<Employee>> getTop3EmployeeOrderByJobTitleDesc() {
-//		// TODO Auto-generated method stub
-//		return this.employeeDaoImpl.findTop3ByOrderByJobTitleDesc();
-//	}
+
 	
 	
 }

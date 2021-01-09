@@ -1,13 +1,24 @@
 package com.feelfreetocode.springboot.models;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Entity(name = "Customer")
 @Table(name = "customers")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
 
 	@Id
@@ -24,4 +35,13 @@ public class Customer {
 	private String country;
 	private Integer salesRepEmployeeNumber;
 	private BigDecimal creditLimit;
+	
+	@ToString.Exclude
+	@OneToMany(mappedBy = "customer" , fetch = FetchType.LAZY)
+	private List<Payment> payments;
+	
+	@ToString.Exclude
+	@OneToMany(mappedBy = "customer" , fetch = FetchType.LAZY)
+	private List<Order> orders;
+	
 }

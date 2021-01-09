@@ -10,12 +10,15 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
-@Entity
+@Entity(name = "Office")
 @Table(name = "offices")
 public class Office {
 
@@ -30,7 +33,11 @@ public class Office {
 	private String postalCode;
 	private String territory;
 	
-	@OneToMany(mappedBy = "officeCode" , fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@OneToMany(mappedBy = "officeCode" , fetch = FetchType.LAZY)
 	private List<Employee> employees;
+
+	
+	
 
 }
