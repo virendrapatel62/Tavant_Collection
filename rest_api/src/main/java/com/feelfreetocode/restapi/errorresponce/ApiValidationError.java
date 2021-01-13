@@ -1,5 +1,7 @@
 package com.feelfreetocode.restapi.errorresponce;
 
+import com.feelfreetocode.restapi.utils.StringUtils;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import com.feelfreetocode.restapi.errorresponce.ApiError;
 
+import antlr.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 
 @Order(value = Ordered.HIGHEST_PRECEDENCE)
@@ -30,9 +31,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 		// TODO Auto-generated method stub
 		
 		ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST);
-		ex.getFieldErrors().forEach(apiError::addValidationError);
+		apiError.addValidationError(ex.getFieldErrors());
 		
 
-		return new ResponseEntity<>( apiError , apiError.getHttpStatus());
+		return new ResponseEntity<>( apiError , HttpStatus.BAD_REQUEST);
 	}
 }

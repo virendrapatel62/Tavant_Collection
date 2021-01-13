@@ -10,15 +10,21 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
+import lombok.Data;
 import lombok.ToString;
 
 @Entity
+@Data
 @Table(name = "products")
 public class Product {
 	
 	@Id
 	private String productCode;
+	
+	@NotBlank()
 	private String productName;
 	private String productLine;
 	private String productScale;

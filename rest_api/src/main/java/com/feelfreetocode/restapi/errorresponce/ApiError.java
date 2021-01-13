@@ -6,14 +6,15 @@ import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.xml.bind.util.ValidationEventCollector;
 
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
+import com.feelfreetocode.restapi.utils.LowerCaseClassNameResolver;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonTypeIdResolver(LowerCaseClassNameResolver.class)
+@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT,use = JsonTypeInfo.Id.CUSTOM,property = "error",visible = true)
 public class ApiError {
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
@@ -64,6 +67,10 @@ public class ApiError {
 
 		addSubError(new ApiValidationError(error.getObjectName(), error.getField(), error.getRejectedValue(),
 				error.getDefaultMessage()));
+	}
+	
+	public void addValidationError(List<FieldError> errors) {
+		errors.forEach(this::addValidationError);
 	}
 
 	public void addValidationError(ConstraintViolation<?> constraintViolation) {
