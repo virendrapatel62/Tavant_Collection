@@ -1,6 +1,7 @@
 package com.feelfreetocode.restapi.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<Employee> getAllEmployees() {
 		// TODO Auto-generated method stub
 		return this.employeeRepository.findAll();
+	}
+
+	@Override
+	public Optional<Employee> getEmployeeById(Integer employeeId) {
+		return this.employeeRepository.findById(employeeId);
 	}
 
 }
