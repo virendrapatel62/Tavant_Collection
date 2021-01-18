@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -40,7 +42,11 @@ public class Employee implements Comparable<Employee> {
 
 	private String extension;
 	
-	@Column(length = 40 , nullable = false) @Size(max = 40)
+	
+
+	@NotBlank(message = "email should not be blank")
+	@Email(message = "provide valid email")
+//	@Transient
 	private String email;
 	
 	

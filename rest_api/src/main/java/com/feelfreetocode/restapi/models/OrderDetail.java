@@ -38,14 +38,3 @@ public class OrderDetail implements Serializable {
 	private Short orderLineNumber;
 
 }
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class OrderDetailId implements Serializable {
-	
-	private Order order;
-
-	private Product product;
-
-}

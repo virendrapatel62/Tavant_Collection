@@ -24,7 +24,7 @@ public class Product {
 	@Id
 	private String productCode;
 	
-	@NotBlank()
+//	@NotBlank()
 	private String productName;
 	private String productLine;
 	private String productScale;

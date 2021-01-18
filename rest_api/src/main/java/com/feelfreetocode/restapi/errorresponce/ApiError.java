@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 public class ApiError {
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
-	private LocalDateTime timeStamp;
+	private LocalDateTime timeStamp =LocalDateTime.now();
 	private String message;
 	private String debugMessage;
 	private HttpStatus httpStatus;
@@ -65,7 +65,10 @@ public class ApiError {
 
 	public void addValidationError(FieldError error) {
 
-		addSubError(new ApiValidationError(error.getObjectName(), error.getField(), error.getRejectedValue(),
+		addSubError(new ApiValidationError(
+				error.getObjectName(), 
+				error.getField(), 
+				error.getRejectedValue(),
 				error.getDefaultMessage()));
 	}
 	
