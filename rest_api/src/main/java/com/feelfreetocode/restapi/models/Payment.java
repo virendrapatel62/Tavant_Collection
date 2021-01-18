@@ -1,6 +1,7 @@
 package com.feelfreetocode.restapi.models;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -12,11 +13,13 @@ import javax.persistence.Table;
 
 @Entity(name = "Payment")
 @Table(name="payments")
-@IdClass(PaymentId.class)
+//@IdClass(PaymentId.class)
 public class Payment implements Serializable {
 	
 	
 	@Id
+	private BigInteger paymentId;
+	
 	@ManyToOne
 	@JoinColumn(name = "customerNumber")
 	private Customer customer;
