@@ -1,0 +1,4 @@
+FROM adoptopenjdk/openjdk11:alpine-jre 
+VOLUME /tmp
+COPY target/customer_rest-1.0.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]

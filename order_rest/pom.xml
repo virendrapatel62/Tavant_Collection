@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.feelfreetocode.employee.restapi</groupId>
-	<artifactId>employee_rest</artifactId>
+	<artifactId>order_rest</artifactId>
 	<version>1.0</version>
-	<name>employee_rest</name>
-	<description>Employee Rest Api Service</description>
+	<name>order_rest</name>
+	<description>Order Rest Api Service</description>
 
 	<properties>
 		<java.version>1.8</java.version>

@@ -8,11 +8,11 @@
 		<version>2.4.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.feelfreetocode.employee.restapi</groupId>
-	<artifactId>employee_rest</artifactId>
+	<groupId>com.feelfreetocode.product.restapi</groupId>
+	<artifactId>product_rest</artifactId>
 	<version>1.0</version>
-	<name>employee_rest</name>
-	<description>Employee Rest Api Service</description>
+	<name>product_rest</name>
+	<description>Product Rest Api Service</description>
 
 	<properties>
 		<java.version>1.8</java.version>
