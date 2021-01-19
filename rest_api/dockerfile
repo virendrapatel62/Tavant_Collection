@@ -1,0 +1,19 @@
+#-- we want to built the complete infra for our application
+#jdk or jre 
+
+ 
+
+FROM adoptopenjdk/openjdk11:alpine-jre
+# openjdk === alpine ===> alpine its a light weight image jre 11
+
+ 
+
+# 
+VOLUME /tmp
+
+ 
+
+COPY target/rest_api-0.0.1-SNAPSHOT.jar restapi.jar
+#do we need source code or jar file?
+
+ENTRYPOINT ["java" , "-jar" , "restapi.jar"]
