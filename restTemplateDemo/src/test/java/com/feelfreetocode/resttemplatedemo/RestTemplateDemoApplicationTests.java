@@ -2,6 +2,9 @@ package com.feelfreetocode.resttemplatedemo;
 
 
 
+import java.util.List;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
@@ -9,23 +12,27 @@ import org.springframework.http.converter.cbor.MappingJackson2CborHttpMessageCon
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.cbor.CBORFactory;
+import com.feelfreetocode.resttemplatedemo.models.Employee;
 
 @SpringBootTest
 class RestTemplateDemoApplicationTests {
 	
-	@Bean
-	RestTemplate getRestTemplate() {
-		RestTemplate  restTemplate = new RestTemplate();
-		
-		MappingJackson2CborHttpMessageConverter cborHttpMessageConverter = new MappingJackson2CborHttpMessageConverter();
-		cborHttpMessageConverter.setObjectMapper(new ObjectMapper());
-		
-		restTemplate.getMessageConverters().add(cborHttpMessageConverter);
-		return restTemplate;
-	}
-
+	
 	@Test
 	void contextLoads() {
+		RestTemplate  restTemplate = new RestTemplate();
+//		Employee employee =  restTemplate.getForObject("http://localhost:8085/api/employees/1", Employee.class);
+//		Assertions.assertNotNull(employee);
+		
+		Employee employee =  restTemplate.postForObject("http://localhost:8086/api/employees", 
+				new Employee(10000, "FirstName", "LastName" , "se", "email@code.in", "1", 1 , "SW") , Employee.class);
+		
+		
+		Assertions.assertNotNull(employee);
+		
+		
+		restTemplate.delete("http://localhost:8086/api/employees/{id}", employee.getEmployeeId());
 	}	
 
 }
