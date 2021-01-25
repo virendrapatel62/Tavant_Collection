@@ -21,7 +21,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "Register")
-public class Employee extends AuditModel{
+public class Register extends AuditModel{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
