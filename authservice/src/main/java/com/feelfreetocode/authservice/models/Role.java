@@ -11,8 +11,15 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.NaturalId;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "Roles")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
 	
 	@Id
@@ -24,16 +31,4 @@ public class Role {
     @Column(length = 60)
     private RoleName name;	
     
-    public Role() {
-
-    }
-
-    public Role(RoleName name) {
-        this.name = name;
-    }
-
-	public Long getId() {
-		return id;
-	}
-	
 }
