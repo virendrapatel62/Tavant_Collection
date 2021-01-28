@@ -41,6 +41,9 @@ public class RegisterPrincipal implements UserDetails {
 		return new RegisterPrincipal(register.getId(), register.getFirstName(), register.getLastName(),
 				register.getUsername(), register.getEmail(), register.getPassword(), authorities);
 	}
+	
+	
+	
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

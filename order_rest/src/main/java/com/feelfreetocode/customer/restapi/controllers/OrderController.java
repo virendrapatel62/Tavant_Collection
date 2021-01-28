@@ -13,19 +13,23 @@ import com.feelfreetocode.customer.restapi.models.Order;
 import com.feelfreetocode.customer.restapi.repository.OrderRepository;
 
 @RestController
-@RequestMapping("/api/orders")
 public class OrderController {
 	
 	@Autowired
 	private OrderRepository orderRepository;
 	
-	@PostMapping()
+	@GetMapping("/test")
+	public String test() {
+		return "ORDER API IS WORKING";
+	}
+	
+	@PostMapping("/createOrder")
 	public Order createorder(@RequestBody @Valid Order order) {
 		return this.orderRepository.save(order);
 	}
 	
 	
-	@GetMapping()
+	@GetMapping("/all")
 	public java.util.List<Order> getOrders(){
 		return this.orderRepository.findAll();
 	}

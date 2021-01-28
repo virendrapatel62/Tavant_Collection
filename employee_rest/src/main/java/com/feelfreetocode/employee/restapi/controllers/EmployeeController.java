@@ -17,19 +17,18 @@ import com.feelfreetocode.employee.restapi.models.Employee;
 import com.feelfreetocode.employee.restapi.repository.EmployeeRepository;
 
 @RestController
-@RequestMapping("/api/employees")
 public class EmployeeController {
 	
 	@Autowired
 	private EmployeeRepository  employeeRepository;
 	
-	@PostMapping()
+	@PostMapping("/createEmployee")
 	public Employee createEmployee(@RequestBody @Valid Employee employee) {
 		return this.employeeRepository.save(employee);
 	}
 	
 	
-	@GetMapping()
+	@GetMapping("/all")
 	public java.util.List<Employee> getEmployees(){
 		return this.employeeRepository.findAll();
 	}

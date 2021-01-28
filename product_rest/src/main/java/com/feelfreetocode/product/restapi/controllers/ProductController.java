@@ -14,19 +14,23 @@ import com.feelfreetocode.product.restapi.repository.ProductLineRepository;
 import com.feelfreetocode.product.restapi.repository.ProductRepository;
 
 @RestController
-@RequestMapping("/api/products")
 public class ProductController {
 	
 	@Autowired
 	private ProductRepository productRepository;
 	
-	@PostMapping()
+	@GetMapping("/test")
+	public String test() {
+		return "PRODUCT API IS WORKING";
+	}
+	
+	@PostMapping("/createProduct")
 	public Product createProduct(@RequestBody @Valid Product product) {
 		return this.productRepository.save(product);
 	}
 	
 	
-	@GetMapping()
+	@GetMapping("/all")
 	public java.util.List<Product> getProducts(){
 		return this.productRepository.findAll();
 	}

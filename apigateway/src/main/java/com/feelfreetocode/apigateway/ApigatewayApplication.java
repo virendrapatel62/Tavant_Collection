@@ -7,8 +7,8 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@CrossOrigin("*")
 @SpringBootApplication
+@CrossOrigin("*")
 @EnableEurekaClient
 @EnableZuulProxy
 public class ApigatewayApplication {

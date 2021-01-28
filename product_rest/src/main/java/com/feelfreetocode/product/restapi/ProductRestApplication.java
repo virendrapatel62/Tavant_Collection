@@ -2,12 +2,14 @@ package com.feelfreetocode.product.restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-public class EmployeeRestApplication {
+@EnableEurekaClient
+public class ProductRestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmployeeRestApplication.class, args);
+		SpringApplication.run(ProductRestApplication.class, args);
 	}
 
 }
